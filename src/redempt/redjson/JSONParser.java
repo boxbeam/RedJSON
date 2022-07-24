@@ -25,6 +25,7 @@ public class JSONParser {
 	
 	private int pos;
 	private String str;
+	private StringBuilder builder = new StringBuilder();
 	
 	private JSONParser(String str) {
 		this.str = str;
@@ -100,12 +101,12 @@ public class JSONParser {
 	
 	private String string() {
 		assertChar('"');
-		StringBuilder out = new StringBuilder();
+		builder.setLength(0);
 		char c;
 		while ((c = advance()) != '"') {
-			out.append(c == '\\' ? escapeSequence() : c);
+			builder.append(c == '\\' ? escapeSequence() : c);
 		}
-		return out.toString();
+		return builder.toString();
 	}
 	
 	private Object object() {
