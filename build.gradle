@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'redempt.redjson.Main'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("src")
+        }
+    }
+}
+
+group 'redempt.redjson'
+version '1.0'
