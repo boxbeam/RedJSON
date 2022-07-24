@@ -60,12 +60,16 @@ public class JSONParser {
 	}
 	
 	private long integer() {
+		boolean negative = peek() == '-';
+		if (negative) {
+			pos++;
+		}
 		int out = 0;
 		while (isDigit()) {
 			out *= 10;
 			out += advance() - '0';
 		}
-		return out;
+		return negative ? -out : out;
 	}
 	
 	private double decimal(long first) {
@@ -115,6 +119,7 @@ public class JSONParser {
 			case 'n':
 				pos += 4;
 				return null;
+			case '-':
 			case '0':
 			case '1':
 			case '2':
