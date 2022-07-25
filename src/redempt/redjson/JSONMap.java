@@ -4,13 +4,37 @@ import java.util.HashMap;
 import java.util.StringJoiner;
 
 public class JSONMap extends HashMap<String, Object> {
-
-	public JSONMap getMap(String key) {
-		return (JSONMap) get(key);
+	
+	public Integer getInt(String key) {
+		Object o = get(key);
+		if (o instanceof Long) {
+			return (int) (long) o;
+		}
+		return (Integer) o;
+	}
+	
+	public Boolean getBoolean(String key) {
+		return (Boolean) get(key);
+	}
+	
+	public Double getDouble(String key) {
+		return (Double) get(key);
+	}
+	
+	public Long getLong(String key) {
+		return (Long) get(key);
 	}
 	
 	public JSONList getList(String key) {
 		return (JSONList) get(key);
+	}
+	
+	public JSONMap getMap(String key) {
+		return (JSONMap) get(key);
+	}
+	
+	public String getString(String key) {
+		return (String) get(key);
 	}
 	
 	@Override
