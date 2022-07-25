@@ -12,7 +12,7 @@ public class JSONParser {
 	}
 	
 	public static String toJSONString(Object o) {
-		return o instanceof String str ? '"' + str.replace("\"", "\\\"") + '"' : o.toString();
+		return o instanceof String str ? '"' + str.replace("\\", "\\\\").replace("\"", "\\\"") + '"' : o.toString();
 	}
 	
 	public static JSONMap parseMap(String json) {
