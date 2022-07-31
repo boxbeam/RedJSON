@@ -89,7 +89,7 @@ public class JSONParser {
 			case 'r':
 				return '\r';
 			case 'u':
-				return (char) Integer.parseInt(str.substring(pos, pos + 4), 16);
+				return (char) Integer.parseInt(str.substring(pos, pos += 4), 16);
 			case '"':
 				return '"';
 			case '\\':
